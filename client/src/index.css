@@ -1,0 +1,266 @@
+:root {
+  --primary: #d81e5b;
+  --secondary: #8a4efc;
+  /* --light: #dddddd; */
+  --light-alt: #7893c7;
+  --dark: #1a2332;
+  --dark-alt: #36455d;
+  --text-color: #ffffffe4;
+}
+
+::selection {
+  background-color: var(--light-alt);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* border: 1px solid #fbd15c; */
+}
+
+.App-container {
+  position: absolute;
+  inset: 0;
+  overflow: auto;
+}
+
+.App-container.dark {
+  background-color: var(--dark-alt);
+  color: var(--text-color);
+}
+.App-container.light {
+  background-color: var(--text-color);
+  /* color: var(--dark-alt); */
+  color: #444;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+}
+
+.title-head {
+  display: flex;
+  justify-content: center;
+}
+
+.task-heading,
+.add-task-btn {
+  color: #ebeef4;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-weight: bolder;
+  padding: 5px 10px;
+  cursor: default;
+}
+
+.add-task-btn {
+  margin-left: 1rem;
+  background-color: var(--dark);
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  opacity: 0.7;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.add-task-btn:hover,
+.add-task-btn:focus {
+  background-color: #00a01bd2;
+  opacity: 1;
+}
+
+.todos-container {
+  border: 2px dashed var(--light-alt);
+  width: 70vw;
+  border-radius: 10px;
+  padding: 1rem;
+  /* transition: all 1.5s ease-in-out; */
+}
+
+.todo {
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  outline: 2px solid var(--dark);
+  transition: transform 0.2s ease-in-out;
+  cursor: default;
+}
+
+.App-container.light .todo {
+  background-color: #ddd;
+}
+.App-container.dark .todo {
+  background-color: var(--dark);
+}
+
+.todo:hover,
+.todo:focus {
+  background-color: #3b5074;
+  transform: scale(1.01, 1.01);
+}
+
+.todo .check-box {
+  height: 10px;
+  width: 10px;
+  background-color: var(--dark-alt);
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.todo.todo-done .check-box {
+  background-color: #d81e5b;
+  text-decoration: line-through;
+}
+
+.text-box {
+  width: 85%;
+  margin: 5px;
+}
+
+.todo.todo-done .text-box {
+  text-decoration-line: line-through;
+  text-decoration-color: var(--light-alt);
+  color: #ffffff81;
+}
+
+.App-container.light .todo.todo-done .text-box {
+  color: #848181;
+}
+
+.delete-todo {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  /* border: 1px solid red; */
+  text-align: right;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.delete-todo:hover,
+.delete-todo:focus {
+  color: #ff0000;
+}
+
+.empty-todo-box {
+  /* border: 1px solid red; */
+  text-align: center;
+  color: var(--light-alt);
+  cursor: pointer;
+}
+
+.model-container {
+  position: fixed;
+  inset: 0;
+  background-color: #000000a5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.add-todo-model {
+  width: 70vw;
+  padding: 3rem;
+  background-color: var(--light-alt);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 0.8rem;
+}
+
+.todo-input {
+  color: var(--text-color);
+  background-color: var(--dark);
+  padding: 10px 15px;
+  font-size: 1rem;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.todo-input::placeholder {
+  color: var(--light-alt);
+}
+
+.submit-new-todo-btn,
+.cancle-btn {
+  padding: 5px 10px;
+  background-color: var(--dark);
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: bolder;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  opacity: 0.8;
+}
+
+.cancle-btn {
+  background-color: #ff0000d2;
+  margin-left: 0.4rem;
+  color: var(--text-color);
+}
+
+.submit-new-todo-btn:hover,
+.cancle-btn:hover,
+.submit-new-todo-btn:focus,
+.cancle-btn:focus {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+.theme-toggler-btn {
+  font-size: 25px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.theme-toggler-btn.light {
+  color: black;
+}
+.theme-toggler-btn.dark {
+  color: white;
+}
+
+.title {
+  display: inline-block;
+  cursor: default;
+}
+
+.App-container.light .task-heading {
+  color: #415d90;
+}
+
+.App-container.dark .todo:hover {
+  background-color: #3b5074;
+}
+.App-container.light .todo:hover {
+  background-color: #3b5074;
+  color: var(--text-color);
+}
